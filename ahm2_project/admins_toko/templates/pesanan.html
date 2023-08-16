@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Data Pemesanan</h1>
+<p class="mb-4">Halaman data Pemesanan</p>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary"></h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            {% for message in messages %}
+                {% if message %}
+                    <div class="alert alert-success">{{ message }}</div>
+                {% endif %}
+            {% endfor %}
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>id_pesanan</th>
+                        <th>Produk</th>
+                        <th>Harga</th>
+                        <th>Jumlah</th>
+                        <th>Total</th>
+                        <th>Metode Pembayaran</th>
+                        <th>Konfrimasi Pembayaran</th>
+                        <th>Bukti Pembayaran</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pesanan in pesanans %}
+                    <tr>
+                        <td>{{ pesanan.id_pesanan }}</td>
+                        <td>{{ pesanan.id_produk.nama_produk }}</td>
+                        <td>{{ pesanan.id_produk.harga_idr }}</td>
+                        <td>{{ pesanan.jumlah }}</td>
+                        <td>{{ pesanan.total }}</td>
+                        <td>{{ pesanan.metode_pembayaran }}</td>
+                        <td>{{ pesanan.konfirmasi_pembayaran }}</td>
+                        <td>{{ pesanan.bukti_pembayaran }}</td>
+                        <td>
+                            <a href="{% url 'edit_pesanan' pesanan.id_pesanan %}" class="btn btn-primary">Detail Pesanan</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

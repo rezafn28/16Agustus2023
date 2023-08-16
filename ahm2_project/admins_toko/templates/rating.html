@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Kelola Rating</h1>
+<p class="mb-4">Halaman kelola rating</p>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary"><a href="{% url 'tambah_rating' %}" class="btn btn-primary">Tanggapi Rating</a></h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            {% for message in messages %}
+                {% if message %}
+                    <div class="alert alert-success">{{ message }}</div>
+                {% endif %}
+            {% endfor %}
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>id rating</th>
+                        <th>Pelangan</th>
+                        <th>Produk/Toko</th>
+                        <th>Rating</th>
+                        <th>Timestamp</th>
+                        <th>Tanggapan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for rating in ratings %}
+                    <tr>
+                        <td>{{ rating.id_rating }}</td>
+                        <td>{{ rating.pelanggan }}</td>
+                        <td>{{ rating.id_produk.nama_produk }}</td>
+                        <td>{{ rating.rating }}</td>
+                        <td>{{ rating.timestamp }}</td>
+                        <td>{{ rating.komentar }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

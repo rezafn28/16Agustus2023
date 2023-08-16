@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>{% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Toko AHM</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free HTML Templates" name="keywords">
+        <meta content="Free HTML Templates" name="description">
+
+        <!-- Favicon -->
+        <link href="{% static 'assets/images/birny logo.png'%}" rel="icon">
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet">
+
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="{% static 'css/style.css'%}" rel="stylesheet">
+    </head>
+    <title>Riwayat Pesanan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="col-lg-9">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+            <a href="" class="text-decoration-none d-block d-lg-none">
+                <h1 class="m-0 display-5 font-weight-semi-bold"><span
+                        class="text-primary font-weight-bold border px-3 mr-1">Toko</span>AHM</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav mr-auto py-0">
+                    <a href="/index/" class="nav-item nav-link active">Beranda</a>
+                    <a href="/shop/" class="nav-item nav-link">Produk</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Halaman</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="/cart/" class="dropdown-item">Keranjang Produk</a>
+                            <a href="/checkout/" class="dropdown-item">Checkout</a>
+                        </div>
+                    </div>
+                    <a href="/contact/" class="nav-item nav-link">Promosi</a>
+                </div>
+                <div class="navbar-nav ml-auto py-0">
+                </div>
+            </div>
+        </nav>
+    </div>
+    </div>
+    </div>
+    <div class="container-fluid bg-secondary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+            <h1 class="font-weight-semi-bold text-uppercase mb-3">Riwayat pemesanan</h1>
+            <div class="d-inline-flex">
+                <p class="m-0"><a href="/beranda/">Beranda</a></p>
+                <p class="m-0 px-2">-</p>
+                <p class="m-0">riwayat pesanan</p>
+            </div>
+        </div>
+    </div>
+    <h2>Riwayat Pesanan</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nomor Pesanan</th>
+                <th>Tanggal Pesanan</th>
+                <th>Status</th>
+                <th>Total Harga</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pesanan in riwayat_pesanan %}
+            <tr>
+                <td>{{ pesanan.nomor_pesanan }}</td>
+                <td>{{ pesanan.tanggal_pesanan }}</td>
+                <td>{{ pesanan.status }}</td>
+                <td>{{ pesanan.total_harga }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
